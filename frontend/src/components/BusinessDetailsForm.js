@@ -7,9 +7,9 @@ const BusinessDetailsForm = ({ changeHandler, state, nextStep, prevStep }) => {
   const submitHandler = (e) => {
     e.preventDefault();
     if (
-      state.loanamount === "" ||
-      state.loantenure === "" ||
-      state.loaninterest === ""
+      state.businessName === "" ||
+      state.businessAddress === "" ||
+      state.GSTno === ""
     ) {
       setError(true);
     } else {
