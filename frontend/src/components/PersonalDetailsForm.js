@@ -85,7 +85,7 @@ const PersonalDetailsForm = ({ changeHandler, state, nextStep }) => {
             <input
               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="number"
-              type="number"
+              type="text"
               placeholder="Enter Phone Number..."
               value={state.mobno}
               onChange={changeHandler("mobno")}

@@ -20,7 +20,7 @@ function App() {
     loaninterest: "",
   });
   const changeHandler = (input) => (e) => {
-    console.log(state);
+    // console.log(state);
     const { value } = e.target;
     setState((prevState) => ({
       ...prevState,

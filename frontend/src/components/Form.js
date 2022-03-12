@@ -2,6 +2,7 @@ import React from "react";
 import BusinessDetailsForm from "./BusinessDetailsForm";
 import LoanDetailsForm from "./LoanDetailsForm";
 import PersonalDetailsForm from "./PersonalDetailsForm";
+import Success from "./Success";
 
 const Form = ({ changeHandler, state, nextStep, prevStep }) => {
   switch (state.page) {
@@ -32,6 +33,8 @@ const Form = ({ changeHandler, state, nextStep, prevStep }) => {
           prevStep={prevStep}
         />
       );
+    case 4:
+      return <Success />;
 
     default:
       return (

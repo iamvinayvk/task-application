@@ -1,9 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 
 const LoanDetailsForm = ({ changeHandler, state, nextStep, prevStep }) => {
   //   state.page = 3;
+  const {
+    fname,
+    lname,
+    age,
+    mobno,
+    businessName,
+    businessAddress,
+    GSTno,
+    loantenure,
+    loanamount,
+    loaninterest,
+  } = state;
+  const values = {
+    fname,
+    lname,
+    age,
+    mobno,
+    businessName,
+    businessAddress,
+    GSTno,
+    loantenure,
+    loanamount,
+    loaninterest,
+  };
   const [error, setError] = useState(false);
-
+  const submitForm = async () => {
+    console.log("on");
+    try {
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      };
+      const { data } = await axios.post("/api/submit", values, config);
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const submitHandler = (e) => {
     e.preventDefault();
     if (
@@ -15,9 +53,10 @@ const LoanDetailsForm = ({ changeHandler, state, nextStep, prevStep }) => {
     } else {
       setError(false);
       nextStep();
+      submitForm();
     }
   };
-  const submitForm = () => {};
+  const LoanDetailsForm = () => {};
   return (
     <div className="w-full h-full">
       <div className="flex justify-center h-full">
@@ -40,7 +79,7 @@ const LoanDetailsForm = ({ changeHandler, state, nextStep, prevStep }) => {
             <input
               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="loanamount"
-              type="number"
+              type="text"
               value={state.loanamount}
               onChange={changeHandler("loanamount")}
               placeholder="Enter Loan Amount..."
@@ -58,7 +97,7 @@ const LoanDetailsForm = ({ changeHandler, state, nextStep, prevStep }) => {
               id="address"
               type="text"
               value={state.loaninterest}
-              onChange={changeHandler("loaninterset")}
+              onChange={changeHandler("loaninterest")}
               placeholder="Enter Loan Interest..."
             />
           </div>
@@ -81,15 +120,15 @@ const LoanDetailsForm = ({ changeHandler, state, nextStep, prevStep }) => {
           </div>
           <button
             type="button"
-            className=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+            className=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out m-4"
             onClick={prevStep}
           >
             Back
           </button>
           <button
             type="button"
-            className=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
-            onClick={nextStep}
+            className=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out m-4"
+            onClick={submitHandler}
           >
             Submit
           </button>

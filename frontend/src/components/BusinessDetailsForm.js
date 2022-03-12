@@ -7,9 +7,9 @@ const BusinessDetailsForm = ({ changeHandler, state, nextStep, prevStep }) => {
   const submitHandler = (e) => {
     e.preventDefault();
     if (
-      state.businessName === "" ||
-      state.businessAddress === "" ||
-      state.GSTno === ""
+      state.loanamount === "" ||
+      state.loantenure === "" ||
+      state.loaninterest === ""
     ) {
       setError(true);
     } else {
@@ -80,14 +80,14 @@ const BusinessDetailsForm = ({ changeHandler, state, nextStep, prevStep }) => {
           </div>
           <button
             type="button"
-            className=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+            className=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out m-4"
             onClick={prevStep}
           >
             Back
           </button>
           <button
             type="button"
-            className=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+            className=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out m-4"
             onClick={submitHandler}
           >
             Next
