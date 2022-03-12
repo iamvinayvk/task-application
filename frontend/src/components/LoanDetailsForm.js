@@ -45,9 +45,9 @@ const LoanDetailsForm = ({ changeHandler, state, nextStep, prevStep }) => {
   const submitHandler = (e) => {
     e.preventDefault();
     if (
-      state.businessName === "" ||
-      state.businessAddress === "" ||
-      state.GSTno === ""
+      state.loanamount === "" ||
+      state.loantenure === "" ||
+      state.loaninterest === ""
     ) {
       setError(true);
     } else {
